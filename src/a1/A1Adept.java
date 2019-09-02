@@ -44,30 +44,34 @@ public class A1Adept {
 			orderOutputs[i][0] = name;
 			orderOutputs[i][1] = String.format("%.2f", total);
 		}
-		outputSort(orderOutputs);
-		int last = orderOutputs.length - 1;
-		System.out.println("Biggest: " + orderOutputs[last][0] + " (" + orderOutputs[last][1] + ")");
-		System.out.println("Smallest: " + orderOutputs[0][0] + " (" + orderOutputs[0][1] + ")");
+		int bigIndex = findBiggest(orderOutputs);
+		int smallIndex = findSmallest(orderOutputs);
+		System.out.println("Biggest: " + orderOutputs[bigIndex][0] + " (" + orderOutputs[bigIndex][1] + ")");
+		System.out.println("Smallest: " + orderOutputs[smallIndex][0] + " (" + orderOutputs[smallIndex][1] + ")");
 		System.out.println("Average: " + average(orderOutputs));
+		
 	}
 	
-	static void outputSort(String[][] array) {
-		String tempName;
-		String tempValue;
+	static int findBiggest(String[][] array) {
+		int index = 0;
 		
-		for (int i = 0; i < (array.length - 1); i++) {
-			double currentVal = Double.parseDouble(array[i][1]);
-			double nextVal = Double.parseDouble(array[i+1][1]);
-			if (currentVal > nextVal) {
-				tempName = array[i][0];
-				tempValue = array[i][1];
-				
-				array[i][0] = array[i+1][0];
-				array[i][1] = array[i+1][1];
-				array[i+1][0] = tempName;
-				array[i+1][1] = tempValue;
+		for (int i = 0; i < array.length; i++) {
+			if (Double.parseDouble(array[i][1]) > Double.parseDouble(array[index][1])) {
+				index = i;
 			}
 		}
+		return index;
+	}
+	
+	static int findSmallest(String[][] array) {
+		int index = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+			if (Double.parseDouble(array[i][1]) < Double.parseDouble(array[index][1])) {
+				index = i;
+			}
+		}
+		return index;
 	}
 	
 	static String average(String[][] array) {
