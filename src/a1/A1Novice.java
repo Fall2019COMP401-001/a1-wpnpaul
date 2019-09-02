@@ -20,7 +20,7 @@ public class A1Novice {
 			double total = 0.0;
 			for (int j = 0; j < numOfItems; j++) {
 				int quantity = scan.nextInt();
-				String item = scan.next();
+				scan.next();
 				double price = scan.nextDouble();
 				
 				total = total + quantity * price;

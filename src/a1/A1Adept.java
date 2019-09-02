@@ -1,6 +1,5 @@
 package a1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class A1Adept {
@@ -49,6 +48,7 @@ public class A1Adept {
 		System.out.println("Biggest: " + orderOutputs[bigIndex][0] + " (" + orderOutputs[bigIndex][1] + ")");
 		System.out.println("Smallest: " + orderOutputs[smallIndex][0] + " (" + orderOutputs[smallIndex][1] + ")");
 		System.out.println("Average: " + average(orderOutputs));
+		scan.close();
 		
 	}
 	
@@ -57,7 +57,9 @@ public class A1Adept {
 		
 		for (int i = 0; i < array.length; i++) {
 			if (Double.parseDouble(array[i][1]) > Double.parseDouble(array[index][1])) {
-				index = i;
+				if (!(Double.parseDouble(array[i][1]) - Double.parseDouble(array[index][1]) < 0.005)) {
+					index = i;
+				}
 			}
 		}
 		return index;
@@ -68,6 +70,9 @@ public class A1Adept {
 		
 		for (int i = 0; i < array.length; i++) {
 			if (Double.parseDouble(array[i][1]) < Double.parseDouble(array[index][1])) {
+				if (!(Double.parseDouble(array[i][1]) - Double.parseDouble(array[index][1]) < 0.005)) {
+					index = i;
+				}
 				index = i;
 			}
 		}

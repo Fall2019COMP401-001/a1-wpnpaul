@@ -16,7 +16,7 @@ public class A1Jedi {
 		
 		for (int i = 0; i < numItems; i++) {
 			String item = scan.next();
-			String price = scan.next();
+			scan.next();
 			itemCatelog[i] = item;
 		}
 		
@@ -24,7 +24,8 @@ public class A1Jedi {
 		boolean[][] hasBought = new boolean[numCustomers][numItems];
 		
 		for (int i = 0; i < numCustomers; i++) {
-			String fullName = scan.next() + " " + scan.next();
+			scan.next();
+			scan.next();
 			int customerItems = scan.nextInt();
 			
 			for (int j = 0; j < customerItems; j++) {
@@ -51,5 +52,6 @@ public class A1Jedi {
 				System.out.println(numCustomersBoughtItem[i] + " customers bought " + itemQuantity[i] + " " + itemCatelog[i]);
 			}
 		}
+		scan.close();
 	}
 }
