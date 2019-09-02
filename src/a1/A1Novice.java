@@ -32,5 +32,6 @@ public class A1Novice {
 		for (int i = 0; i < numCustomers; i++) {
 			System.out.println(orderOutputs[i]);
 		}
+		scan.close();
 	}
 }
