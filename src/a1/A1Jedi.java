@@ -31,8 +31,8 @@ public class A1Jedi {
 				String item = scan.next();
 				for (int k = 0; k < numItems; k++) {
 					if (itemCatelog[k].equals(item)) {
-						itemQuantity[k] = quantity;
-						numCustomersBoughtItem[k]++;
+						itemQuantity[k] = itemQuantity[k] + quantity;
+						numCustomersBoughtItem[k] = numCustomersBoughtItem[k] + 1;
 					}
 				}
 			}
