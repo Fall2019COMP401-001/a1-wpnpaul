@@ -21,6 +21,7 @@ public class A1Jedi {
 		}
 		
 		int numCustomers = scan.nextInt();
+		boolean[][] hasBought = new boolean[numCustomers][numItems];
 		
 		for (int i = 0; i < numCustomers; i++) {
 			String name = scan.next() + " " + scan.next();
@@ -29,10 +30,14 @@ public class A1Jedi {
 			for (int j = 0; j < customerItems; j++) {
 				int quantity = scan.nextInt();
 				String item = scan.next();
+
 				for (int k = 0; k < numItems; k++) {
 					if (itemCatelog[k].equals(item)) {
 						itemQuantity[k] = itemQuantity[k] + quantity;
-						numCustomersBoughtItem[k] = numCustomersBoughtItem[k] + 1;
+						if (!hasBought[i][k]) {
+							numCustomersBoughtItem[k] = numCustomersBoughtItem[k] + 1;
+						}
+						hasBought[i][k] = true;
 					}
 				}
 			}
