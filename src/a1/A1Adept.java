@@ -41,12 +41,12 @@ public class A1Adept {
 			}
 			
 			orderOutputs[i][0] = name;
-			orderOutputs[i][1] = String.format("%.2f", total);
+			orderOutputs[i][1] = Double.toString(total);
 		}
 		int bigIndex = findBiggest(orderOutputs);
 		int smallIndex = findSmallest(orderOutputs);
-		System.out.println("Biggest: " + orderOutputs[bigIndex][0] + " (" + orderOutputs[bigIndex][1] + ")");
-		System.out.println("Smallest: " + orderOutputs[smallIndex][0] + " (" + orderOutputs[smallIndex][1] + ")");
+		System.out.println("Biggest: " + orderOutputs[bigIndex][0] + " (" + String.format("%.2f", Double.parseDouble(orderOutputs[bigIndex][1])) + ")");
+		System.out.println("Smallest: " + orderOutputs[smallIndex][0] + " (" + String.format("%.2f", Double.parseDouble(orderOutputs[smallIndex][1])) + ")");
 		System.out.println("Average: " + average(orderOutputs));
 		scan.close();
 		
@@ -57,9 +57,7 @@ public class A1Adept {
 		
 		for (int i = 0; i < array.length; i++) {
 			if (Double.parseDouble(array[i][1]) > Double.parseDouble(array[index][1])) {
-				if (!(Double.parseDouble(array[i][1]) - Double.parseDouble(array[index][1]) < 0.005)) {
-					index = i;
-				}
+				index = i;
 			}
 		}
 		return index;
@@ -70,9 +68,6 @@ public class A1Adept {
 		
 		for (int i = 0; i < array.length; i++) {
 			if (Double.parseDouble(array[i][1]) < Double.parseDouble(array[index][1])) {
-				if (!(Double.parseDouble(array[i][1]) - Double.parseDouble(array[index][1]) < 0.005)) {
-					index = i;
-				}
 				index = i;
 			}
 		}
