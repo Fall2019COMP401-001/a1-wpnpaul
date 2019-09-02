@@ -24,7 +24,7 @@ public class A1Jedi {
 		boolean[][] hasBought = new boolean[numCustomers][numItems];
 		
 		for (int i = 0; i < numCustomers; i++) {
-			String name = scan.next() + " " + scan.next();
+			String fullName = scan.next() + " " + scan.next();
 			int customerItems = scan.nextInt();
 			
 			for (int j = 0; j < customerItems; j++) {
